@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS verigate_db;
+
 CREATE DATABASE verigate_db;
 
 USE verigate_db;
