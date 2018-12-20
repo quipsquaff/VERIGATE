@@ -1,3 +1,8 @@
+@font-face {
+  font-family: xxx;
+  src: url(../gang.ttf);
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -11,6 +16,10 @@ body {
   font-family: 'Titillium Web', sans-serif;
 }
 
+#xxxx{
+  height:8em;
+  font-family: xxx;
+}
 a {
   text-decoration: none;
   color: #1E90FF;
