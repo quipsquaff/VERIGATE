@@ -1,6 +1,6 @@
 # project2
 
-Project Name: Veri-Gate Software
+Project Name: VeriGate Software
 
 12/18/18 
 
