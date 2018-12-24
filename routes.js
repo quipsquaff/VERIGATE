@@ -4,7 +4,7 @@ module.exports = function(app){
     const register = require('./routes/register');
 
     // Points us towards our middleware logic to determine proper routing.
-    app.use('/', application); // Root directory
-    app.use('/register', register); // Registration page
+    app.use('/', register) ; // Root directory
+    app.use('/application', application) ; // Registration page
 
 }
