@@ -45,7 +45,7 @@ CREATE TABLE gates_users (
     gateID INT UNSIGNED,
     PRIMARY KEY (userID, gateID),
     FOREIGN KEY (userID) REFERENCES users(userID),
-    FOREIGN KEY (gateID) REFERENCES gate(gateID)
+    FOREIGN KEY (gateID) REFERENCES gates(gateID)
     );
     
 
