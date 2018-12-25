@@ -14,6 +14,17 @@ var orm = {
             }
             cb(result);
         });
+    },
+    // Method to query the 'users' table in our database to return a specific users email and pass (for Authentication).
+    userPass: function(uid, cb) {
+        var queryString = "SELECT users.email, users.user_pass FROM users WHERE userID = ?;"
+        // Opens a connection to our database and performs the above query while inserting the needing values.
+        connection.query(queryString, [uid], function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     } // To add more methods to our ORM, add a comma to the left of this comment
     // and then add the new method here.
 }
