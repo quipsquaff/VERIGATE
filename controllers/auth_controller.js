@@ -1,8 +1,8 @@
-// Import the model (/models/main.js) to use our database functions.
-var devices = require("../models/devices.js");
+// Import the model (/models/auth.js) to use our database functions.
+var auth = require("../models/auth.js");
 
 exports.index = function(req, res) {
-    devices.auth(function (data) {
+    auth.userPass(function (data) {
         var hbsObject = {
             userInfo: data
         };
