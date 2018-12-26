@@ -1,6 +1,6 @@
 @font-face {
-  font-family: xxx;
-  src: url(../gang.ttf);
+  font-family: "xxx";
+  src: url(../fonts/Voice\ In\ My\ Head.otf);
 }
 
 *, *:before, *:after {
@@ -18,7 +18,7 @@ body {
 
 #xxxx{
   height:8em;
-  font-family: xxx;
+  font-family: "xxx";
   display: block;
 }
 
@@ -92,6 +92,7 @@ h1 {
 }
 
 h2 {
+  font-family: "xxx";
   color: #ffffff;
   padding: 20px;
 }

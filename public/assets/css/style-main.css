@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "xxx";
+  src: url(../fonts/Voice\ In\ My\ Head.otf);
+}
+
 body {
   background-image: url("../pictures/connect/connect.png");
   width: 100%;
@@ -6,10 +11,14 @@ body {
   color: #fff;
   /* padding: 60px; */
 }
+.logoAndFont{
+  color: #1E90FF;
+   font-family: "xxx";
+}
 
 a {
   color: inherit;
-  font-family: inherit;
+   font-family: "xxx";
   font-size: inherit;
   text-decoration: none;
 }
@@ -279,7 +288,8 @@ a {
                    Responsive Mobile Menu 
   ======================================================*/
 .overlay-menu {
-  background: lightblue;
+  opacity: .85;
+  background: rgb(197, 240, 254);
   color: rgb(13, 26, 38);
   display: flex;
   align-items: center;
@@ -319,4 +329,15 @@ a {
   color: rgb(28, 121, 184);
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
+}
+
+.greeterMain{
+  text-align: center;
+  align-content: center;
+}
+
+.userMain{
+text-align: center;
+align-content: center;
+list-style: none;
 }
