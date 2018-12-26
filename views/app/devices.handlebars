@@ -1,0 +1,16 @@
+<h1 class="greeterMain">This is our devices.handlebars file</h1>
+
+        <ul class = "userMain">
+            {{#each gatesTable}}
+        
+            <li>
+                GateID: #{{gateID}} <br>
+                Unit Location: {{unit_location}} <br>
+                Nickname: {{nickname}} <br>
+                SSID: {{SSID}} <br>
+                Pass: {{pass}} <br>
+                Switch Status: {{switch}}
+            </li>
+        
+            {{/each}}
+        </ul>

@@ -2,11 +2,11 @@
 var devices = require("../models/devices.js");
 
 exports.index = function(req, res) {
-    devices.auth(function (data) {
+    devices.queryTable(function (data) {
         var hbsObject = {
-            userInfo: data
+            gatesTable: data
         };
         console.log(hbsObject);
-        res.render('register', hbsObject);
+        res.render('app/devices', hbsObject);
     });
 };
