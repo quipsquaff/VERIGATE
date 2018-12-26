@@ -25,9 +25,20 @@ var orm = {
             }
             cb(result);
         });
-    } // To add more methods to our ORM, add a comma to the left of this comment
+    },
+    // Method to query any table and all table data to our template.
+    queryTable: function(tableName, cb) {
+        var queryString = "SELECT * FROM ??"
+        // Opens a connection to our database and performs the above query while inserting the needed values.
+        connection.query(queryString, [tableName], function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
+    }// To add more methods to our ORM, add a comma to the left of this comment
     // and then add the new method here.
 }
 
-// Export the ORM object for our Model (models/main.js)
+// Export the ORM object for our Model (models/)
 module.exports = orm;
