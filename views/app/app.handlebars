@@ -4,7 +4,7 @@
             <!-- Navbar Logo -->
             <div class="logo">
                 <img id="xxxx" src="assets/pictures/XXX.png" alt="SMAHT!">
-                <a href="#home">Verigate</a>
+                <a class = "logoAndFont" href="#home">Verigate</a>
             </div>
 
             <!-- Navbar Links -->
@@ -39,21 +39,23 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
-
-    <br>
-    <br>
-    <h1>This is our index.handlebars file</h1>
-
-    <ul>
-        {{#each usersGates}}
-
-        <li>
-            User: {{name}} <br>
-            <button>{{unit_location}}</button>
-            ( Switch Status: {{switch}} )
-        </li>
-
-        {{/each}}
-    </ul>
-
+<br>
+<br>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="greeterMain">This is our index.handlebars file</h1>
+        
+        <ul class = "userMain">
+            {{#each usersGates}}
+        
+            <li>
+                User: {{name}} <br>
+                <button>{{unit_location}}</button>
+                ( Switch Status: {{switch}} )
+            </li>
+        
+            {{/each}}
+        </ul>
+    </div>
+</div>
 </body>
