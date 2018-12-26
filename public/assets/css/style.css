@@ -19,7 +19,17 @@ body {
 #xxxx{
   height:8em;
   font-family: xxx;
+  display: block;
 }
+
+.imgtitle {
+  /* padding: 20px; */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
   text-decoration: none;
   color: #1E90FF;
@@ -79,6 +89,11 @@ h1 {
   color: #ffffff;
   font-weight: 300;
   margin: 0 0 40px;
+}
+
+h2 {
+  color: #ffffff;
+  padding: 20px;
 }
 
 label {
