@@ -8,6 +8,11 @@ var devices = {
             cb(res);
         });
     },
+    create: function(location, nickname, ssid, pass, cb) {
+        orm.create("gates", ["unit_location", "nickname", "SSID", "pass"], [location, nickname, ssid, pass], function(res) {
+            cb(res);
+        });
+    },
     delete: function(id, cb) {
         orm.delete("gates", "gateID", id, function(res) {
             cb(res);

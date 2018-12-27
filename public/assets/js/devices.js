@@ -10,6 +10,36 @@ $(function () {
 
 console.log("devices.js has been loaded");
 
+// CREATE OPERATIONS ////
+
+$(".create-form").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    console.log("Button has been clicked!");
+
+    var newDevice = {
+      nickname: $("#device-nickname").val().trim(),
+      location: $("#device-location").val().trim(),
+      ssid: $("#device-wifi-ssid").val().trim(),
+      pass: $("#device-wifi-pass").val().trim()
+    };
+
+    console.log(newDevice);
+
+    // Send the POST request.
+    $.ajax("/devices", {
+      type: "POST",
+      data: newDevice
+    }).then(
+      function () {
+        console.log("created a new device");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
 // DELETE OPERATIONS ////
 
 // When the delete button is clicked, console log that the button has been clicked.

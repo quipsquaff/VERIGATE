@@ -1,6 +1,27 @@
 // Import MySQL connection.
 var connection = require("../config/connection.js");
 
+// ---------------- ////
+// HELPER FUNCTIONS ////
+// ---------------- ////
+
+// Helper function for SQL syntax.
+// Let's say we want to pass 3 values into the mySQL query.
+// In order to write the query, we need 3 question marks.
+// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
+// ["?", "?", "?"].toString() => "?,?,?";
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
+
+// ---------------- ////
+
 // Object Relational Mapper for all of our SQL statement functions.
 var orm = {
     // Method to allow us to determine what gates a user has access to.
@@ -46,6 +67,26 @@ var orm = {
             }
             cb(result);
         });
+    },
+    create: function(tableName, cols, vals, cb) {
+        var queryString = "INSERT INTO " + tableName;
+        
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
+
+        console.log(queryString);
+
+        connection.query(queryString, vals, function(err, result) {
+            if (err) {
+              throw err;
+            }
+            cb(result);
+        });
+        
     }// To add more methods to our ORM, add a comma to the left of this comment
     // and then add the new method here.
 }
