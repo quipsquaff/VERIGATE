@@ -7,6 +7,11 @@ var devices = {
         orm.queryTable("gates", function(res) {
             cb(res);
         });
+    },
+    delete: function(id, cb) {
+        orm.delete("gates", "gateID", id, function(res) {
+            cb(res);
+        });
     }
 }
 

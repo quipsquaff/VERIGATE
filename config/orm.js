@@ -36,6 +36,16 @@ var orm = {
             }
             cb(result);
         });
+    },
+    delete: function(tableName, colName, id, cb) {
+        var queryString = "DELETE FROM ?? WHERE ?? = ?;"
+        // Opens a connection to our database and performs the above query while inserting the needed values.
+        connection.query(queryString, [tableName, colName, id], function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     }// To add more methods to our ORM, add a comma to the left of this comment
     // and then add the new method here.
 }
