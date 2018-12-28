@@ -8,6 +8,11 @@ var devices = {
             cb(res);
         });
     },
+    queryWhere: function(id, cb) {
+        orm.queryWhere("gates", "gateID", id, function(res) {
+            cb(res);
+        });
+    },
     create: function(location, nickname, ssid, pass, cb) {
         orm.create("gates", ["unit_location", "nickname", "SSID", "pass"], [location, nickname, ssid, pass], function(res) {
             cb(res);
@@ -15,6 +20,11 @@ var devices = {
     },
     delete: function(id, cb) {
         orm.delete("gates", "gateID", id, function(res) {
+            cb(res);
+        });
+    },
+    update: function(objColVals, id, cb) {
+        orm.update("gates", objColVals, "gateID", id, function(res) {
             cb(res);
         });
     }

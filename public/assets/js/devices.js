@@ -10,7 +10,7 @@ $(function () {
 
 console.log("devices.js has been loaded");
 
-// CREATE OPERATIONS ////
+// CREATE(POST) OPERATIONS ////
 
 $(".create-form").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
@@ -39,6 +39,18 @@ $(".create-form").on("submit", function (event) {
       }
     );
   });
+
+// UPDATE(PUT) OPERATIONS ////
+$(".update-gate").on("click", function(event) {
+  console.log("The UPDATE button has been clicked!");
+  // Get the correct gateID from the corresponding button's data attribute.
+  var id = $(this).data("gate-id");
+  // AJAX call for GET request.
+  $.get("/devices/" + id, function(data, status){
+    // console.log("Data: " + data + "\nStatus: " + status);
+    window.location.href = "/devices/" + id; // JavaScript redirect to update page for the specific device clicked.
+  });
+})
 
 // DELETE OPERATIONS ////
 

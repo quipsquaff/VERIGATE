@@ -13,6 +13,19 @@ exports.index = function(req, res) {
     });
 };
 
+// Retrieve specific gate/device to display on our update page.
+exports.updatepage = function(req, res) {
+    devices.queryWhere(req.params.id, function (data) {
+      
+        var hbsObject = {
+            layout: 'main-device-update',
+            gateData: data
+        };
+        console.log(hbsObject);
+        res.render('app/device-update', hbsObject);
+    });
+};
+
 // Add new Device to the 'gates' table
 exports.create = function(req, res) {
     devices.create(req.body.location, req.body.nickname, req.body.ssid, req.body.pass, function(result) {
@@ -28,5 +41,24 @@ exports.delete = function(req, res) {
             return res.status(404).end()
         }
             res.status(200).end();
+    });
+};
+
+// Update data for a specific device from the 'gates' table.
+exports.update = function(req, res) {
+    console.log("This is functioning");
+
+    var updateDevice = {
+        nickname: req.body.nickname,
+        unit_location: req.body.unit_location,
+        SSID: req.body.SSID,
+        pass: req.body.pass
+    };
+
+    var gateID = req.body.gateID
+
+    console.log(gateID);
+    devices.update(updateDevice, gateID, function(result) {
+          res.status(200).end();
     });
 };

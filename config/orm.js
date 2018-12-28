@@ -20,6 +20,30 @@ function printQuestionMarks(num) {
     return arr.toString();
   }
 
+// Helper function to convert object key/value pairs to SQL syntax
+function objToSql(ob) {
+    var arr = [];
+  
+    // loop through the keys and push the key/value as a string int arr
+    for (var key in ob) {
+      var value = ob[key];
+      // check to skip hidden properties
+      if (Object.hasOwnProperty.call(ob, key)) {
+        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+
+        // Removed this from the if-statement below ->  && value.indexOf(" ") >= 0
+
+        if (typeof value === "string") {
+          value = "'" + value + "'";
+        }
+        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
+        // e.g. {sleepy: true} => ["sleepy=true"]
+        arr.push(key + "=" + value);
+      }
+    }
+   return(arr);
+  }
+
 // ---------------- ////
 
 // Object Relational Mapper for all of our SQL statement functions.
@@ -49,7 +73,7 @@ var orm = {
     },
     // Method to query any table and all table data to our template.
     queryTable: function(tableName, cb) {
-        var queryString = "SELECT * FROM ??"
+        var queryString = "SELECT * FROM ??";
         // Opens a connection to our database and performs the above query while inserting the needed values.
         connection.query(queryString, [tableName], function(err, result) {
             if (err) {
@@ -58,10 +82,10 @@ var orm = {
             cb(result);
         });
     },
-    delete: function(tableName, colName, id, cb) {
-        var queryString = "DELETE FROM ?? WHERE ?? = ?;"
+    queryWhere: function (tableName, col, val, cb) {
+        var queryString = "SELECT * FROM ?? WHERE ?? = ?";
         // Opens a connection to our database and performs the above query while inserting the needed values.
-        connection.query(queryString, [tableName, colName, id], function(err, result) {
+        connection.query(queryString, [tableName, col, val], function(err, result) {
             if (err) {
                 throw err;
             }
@@ -87,7 +111,36 @@ var orm = {
             cb(result);
         });
         
-    }// To add more methods to our ORM, add a comma to the left of this comment
+    },
+    delete: function(tableName, colName, id, cb) {
+        var queryString = "DELETE FROM ?? WHERE ?? = ?;"
+        // Opens a connection to our database and performs the above query while inserting the needed values.
+        connection.query(queryString, [tableName, colName, id], function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
+    },
+    update: function(tableName, objColVals, colName, id, cb) {
+        var queryString = "UPDATE " + tableName;
+        
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += colName;
+        queryString += " = " + id;
+
+        console.log(queryString);
+
+        connection.query(queryString, function(err, result) {
+            if (err) {
+              throw err;
+            }
+            cb(result);
+        });
+    }
+    // To add more methods to our ORM, add a comma to the left of this comment
     // and then add the new method here.
 }
 
