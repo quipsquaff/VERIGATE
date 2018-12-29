@@ -23,14 +23,14 @@
                         <label>
                             First Name<span class="req">*</span>
                         </label>
-                        <input type="text" required autocomplete="off" />
+                        <input id="first-name" type="text" required autocomplete="off" />
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Last Name<span class="req">*</span>
                         </label>
-                        <input type="text" required autocomplete="off" />
+                        <input id="last-name" type="text" required autocomplete="off" />
                     </div>
                 </div>
 
@@ -38,17 +38,24 @@
                     <label>
                         Email Address<span class="req">*</span>
                     </label>
-                    <input type="email" required autocomplete="off" />
+                    <input id="email" type="email" required autocomplete="off" />
                 </div>
 
                 <div class="field-wrap">
                     <label>
                         Set A Password<span class="req">*</span>
                     </label>
-                    <input type="password" required autocomplete="off" />
+                    <input id="password" type="password" required autocomplete="off" />
                 </div>
 
-                <button type="submit" class="button button-block" />Get Started</button>
+                <div class="field-wrap">
+                    <label>
+                        Confirm Password<span class="req">*</span>
+                    </label>
+                    <input id="confirm-password" type="password" required autocomplete="off" />
+                </div>
+
+                <button id="register-button" type="click" class="button button-block" />Get Started</button>
 
             </form>
 
@@ -86,4 +93,5 @@
 </div> <!-- /form -->
 
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/registration.js"></script>
 </body>
