@@ -6,7 +6,7 @@ module.exports = function(app){
     const auth = require('./routes/auth');
 
     // Points us towards our middleware logic to determine proper routing.
-    app.use('/', register) ; // Root directory
+    app.use('/', register) ; // Route for newUsers data.
     app.use('/application', application) ; // Registration page
     app.use('/devices', devices); // add-remove devices page
     app.use('/auth', auth)

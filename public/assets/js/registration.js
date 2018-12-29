@@ -33,7 +33,14 @@ $(function () {
             }
 
             // Check to see if newUser object has been assigned the proper values.
-            console.log(newUser);
+            // console.log(newUser);
+
+            // Clear the values from text input forms.
+            $("#first-name").val("");
+            $("#last-name").val("")
+            $("#email").val("")
+            $("#password").val("")
+            $("#confirm-password").val("")
 
             // Send the POST request.
             $.ajax("/register", {
@@ -41,16 +48,21 @@ $(function () {
                 data: newUser
             }).then(
                 function () {
-                console.log("created a new device");
+                console.log("created a new User");
             
                     // Switch Tab to Log-in Tab.
                     
-                    $(this).parent().addClass('active');
-                    $(this).parent().siblings().removeClass('active');
+                    $("#register-tab").removeClass('active');
+                    $("#login-tab").addClass('active');
                     
-                    target = $(this).attr('href');
+                    target = $('#register-tab').attr('href');
                 
-                    $('.tab-content > div').not(target).hide();
+                    // $('.tab-content > div').not(target).hide();
+                    $('#signup').css('display', 'none');
+                    $('#login').css('display', 'block');
+
+                    $('#login1').css('display', 'none');
+                    $('#login2').css('display', 'block');
                     
                     $(target).fadeIn(600);
 
