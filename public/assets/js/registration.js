@@ -26,15 +26,14 @@ $(function () {
             console.log("Passwords match!");
             // Instantiate a new object called, newUser and assign the user provided inputs as key-value pairs.
             var newUser = {
-                firstName: $("#first-name").val().trim(),
-                lastName: $("#last-name").val().trim(),
+                name: $("#first-name").val().trim() + " " + $("#last-name").val().trim(),
                 email: $("#email").val().trim(),
                 password: $("#password").val().trim(),
                 confirmPassword: $("#confirm-password").val().trim(),
             }
 
             // Check to see if newUser object has been assigned the proper values.
-            // console.log(newUser);
+            console.log(newUser);
 
             // Send the POST request.
             $.ajax("/register", {
