@@ -1,5 +1,5 @@
 // This static file provides the required JavaScript code the enable the following functionality on the /devices route of our application.
-    // Delete Operations to the 'gates' table in our verigate_db database.
+    // Create, Update, Delete Operations to the 'gates' table in our verigate_db database.
 
 
 
