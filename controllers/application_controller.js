@@ -2,7 +2,7 @@
 var main = require("../models/main");
 
 exports.index = function(req, res) {
-    main.whichGates(function (data) {
+    main.whichGates(req.params.id, function (data) {
         res.render('app/app', {
             layout: 'main-app',
             usersGates: data

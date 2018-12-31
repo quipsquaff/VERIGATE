@@ -2,9 +2,9 @@
 var orm = require("../config/orm.js");
 
 var main = {
-    whichGates: function(cb) {
+    whichGates: function(id, cb) {
         // The '4' located in the arguments below needs to be changed to req.body.uid or req.params.uid dependent on how we set up our route for our main (button) page that loads after user login.
-        orm.whichGates(4, function(res) {
+        orm.whichGates(id, function(res) {
             cb(res);
         });
     }
