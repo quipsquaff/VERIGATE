@@ -5,6 +5,6 @@ var auth_controller = require('../controllers/auth_controller');
 
 router.get('/', auth_controller.index);
 
-router.post('/login', auth_controller.loginUser);
+router.post('/login', passport.authenticate("local"), auth_controller.loginUser);
 
 module.exports = router;

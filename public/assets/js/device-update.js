@@ -41,4 +41,4 @@ $("#back-button").on("click", function (event) {
   console.log("Back button has been clicked!");
 
   window.location.href = "/devices/";
-})
+});

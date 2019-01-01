@@ -27,7 +27,13 @@ var devices = {
         orm.update("gates", objColVals, "gateID", id, function(res) {
             cb(res);
         });
+    },
+    updateSwitch: function(objColVals, condition, cb) {
+        orm.updateSwitch("gates", objColVals, condition, function(res) {
+            cb(res);
+        });
     }
+    
 }
 
 // Export the database functions for our controllers.

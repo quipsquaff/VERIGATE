@@ -140,7 +140,26 @@ var orm = {
             }
             cb(result);
         });
+    },
+    updateSwitch: function(tableName, objColVals, condition, cb) {
+        var queryString = "UPDATE " + tableName;
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        console.log(queryString);
+        
+        connection.query(queryString, function(err, result) {
+            if (err) {
+              throw err;
+            }
+            cb(result);
+        });
     }
+
+        
+    
     // To add more methods to our ORM, add a comma to the left of this comment
     // and then add the new method here.
 }
