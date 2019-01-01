@@ -13,4 +13,6 @@ router.put('/:id', devices_controller.update); // PUT route to UPDATE a device i
 
 router.delete('/:id', devices_controller.delete); // Route to delete a specific device on the 'gates' table.
 
+router.put('/:id', devices_controller.updateSwitch);
+
 module.exports = router;
