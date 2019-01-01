@@ -1,8 +1,8 @@
 INSERT INTO gates (unit_location, nickname, SSID, pass, ip, switch)
     VALUES
-        ("Room 307", "UCLAx Coding Bootcamp TTh", "UCLA_WEB", "", "", 0),
-        ("Front Door", "UCLAx", "UCLA_WEB", "", "", 0),
-        ("Equipment Closet", "UCLAx", "UCLA_WEB", "", "", 0);
+        ("Room 307", "UCLAx Coding Bootcamp TTh", "UCLA_WEB", "", "", "0"),
+        ("Front Door", "UCLAx", "UCLA_WEB", "", "", "0"),
+        ("Equipment Closet", "UCLAx", "UCLA_WEB", "", "", "0");
 
 INSERT INTO users (name, email, admin)
     VALUES
