@@ -8,16 +8,15 @@ $("#update-switch").on("click", function (event) {
     var id = $(this).data("id");
     var newSwitch = $(this).data("newswitch");
     
-    if (id === "0") {
+    if (newSwitch === "0") {
         var updateState = {
             switch: "1"
         }
-    } else if (id === "1") {
+    } else if (newSwitch === "1") {
         var updateState = {
             switch: "0"
         };
     }
-    
   
     // console.log(updateState);
   
