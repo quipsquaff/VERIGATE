@@ -6,6 +6,9 @@ var application_controller = require('../controllers/application_controller');
 
 router.get('/:id', application_controller.index);
 
+router.put('/:id', application_controller.updateSwitch); // Route to UPDATE switchState on the 'gates' table.
+
+
 // router.put('/', devices_controller.updateSwitch);
 
 module.exports = router;

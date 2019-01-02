@@ -62,14 +62,3 @@ exports.update = function(req, res) {
           res.status(200).end();
     });
 };
-
-exports.updateSwitch = function(req, res) {
-    console.log("updateSwitch is functioning");
-    var condition = "id = " + req.params.id;
-
-    console.log("condition", condition);
-
-    devices.updateSwitch({switch: req.body.switch}, condition, function (data) {
-        res.status(200).end();
-    });
-};

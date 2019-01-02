@@ -28,8 +28,9 @@ var devices = {
             cb(res);
         });
     },
-    updateSwitch: function(objColVals, condition, cb) {
-        orm.updateSwitch("gates", objColVals, condition, function(res) {
+    
+    updateSwitch: function(objColVals, id, cb) {
+        orm.updateSwitch("gates", objColVals, "gateID", id, function(res) {
             cb(res);
         });
     }
