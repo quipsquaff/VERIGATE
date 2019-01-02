@@ -9,5 +9,5 @@ exports.index = function(req, res) {
     //     res.render('register', hbsObject);
     //     console.log(data);
     // });
-    res.json('/');
+    res.redirect("/application/:id");
 };
