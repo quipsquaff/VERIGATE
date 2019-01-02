@@ -51,7 +51,7 @@ var orm = {
     // Method to allow us to determine what gates a user has access to.
     whichGates: function(uid, cb) {
         // Creates a queryString that joins the 'users' and 'gates' tables using our junction table 'gates_users'.
-        var queryString = "SELECT users.userID, users.name, gates.unit_location, gates.nickname, gates.switch FROM gates INNER JOIN gates_users ON gates.gateID = gates_users.gateID INNER JOIN users ON gates_users.userID = users.userID WHERE users.userID = ?;"
+        var queryString = "SELECT users.userID, users.name, gates.unit_location, gates.nickname, gates.switch, gates.gateID FROM gates INNER JOIN gates_users ON gates.gateID = gates_users.gateID INNER JOIN users ON gates_users.userID = users.userID WHERE users.userID = ?;"
         // Opens a connection to our database and performs the above query while inserting the needed values.
         connection.query(queryString, [uid], function(err, result) {
             if (err) {
@@ -83,6 +83,7 @@ var orm = {
         });
     },
     queryWhere: function (tableName, col, val, cb) {
+      console.log("queryWhere called")
         var queryString = "SELECT * FROM ?? WHERE ?? = ?";
         // Opens a connection to our database and performs the above query while inserting the needed values.
         connection.query(queryString, [tableName, col, val], function(err, result) {
@@ -113,6 +114,8 @@ var orm = {
         });
         
     },
+
+
     delete: function(tableName, colName, id, cb) {
         var queryString = "DELETE FROM ?? WHERE ?? = ?;"
         // Opens a connection to our database and performs the above query while inserting the needed values.
@@ -123,6 +126,9 @@ var orm = {
             cb(result);
         });
     },
+
+
+
     update: function(tableName, objColVals, colName, id, cb) {
         var queryString = "UPDATE " + tableName;
         
@@ -141,12 +147,18 @@ var orm = {
             cb(result);
         });
     },
-    updateSwitch: function(tableName, objColVals, condition, cb) {
+
+     
+
+    updateSwitch: function(tableName, objColVals, colName, gateID, cb) {
+      // var queryString = "UPDATE gates SET switch = " +  1 + " WHERE gateID = " + 2;
+
         var queryString = "UPDATE " + tableName;
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
-        queryString += condition;
+        queryString += " gateID =  ";
+        queryString += gateID;
 
         console.log(queryString);
         
