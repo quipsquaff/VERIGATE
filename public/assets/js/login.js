@@ -31,7 +31,7 @@ $(function () {
         } 
         
         if (!userPassword) {
-            console.log("P;ease enter password");
+            console.log("Please enter password");
         }
 
         loginUser(userData.email, userData.password);
