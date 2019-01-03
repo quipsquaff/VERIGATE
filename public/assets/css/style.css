@@ -1,9 +1,11 @@
 @font-face {
   font-family: "xxx";
-  src: url(../fonts/Voice\ In\ My\ Head.otf);
+  src: url(../fonts/Voice\In\My\Head.otf);
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -12,12 +14,12 @@ html {
 }
 
 body {
-   background-image: url("../pictures/connect/connect.png");
-  font-family: 'Titillium Web', sans-serif;
+  background-image: url("../pictures/connect/connect.png");
+  font-family: "Titillium Web", sans-serif;
 }
 
-#xxxx{
-  height:8em;
+#xxxx {
+  height: 8em;
   font-family: "xxx";
   display: block;
 }
@@ -32,11 +34,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #1E90FF;
-  transition: .5s ease;
+  color: #1e90ff;
+  transition: 0.5s ease;
 }
 a:hover {
-  color: #1E90FF;
+  color: #1e90ff;
 }
 
 .form {
@@ -69,14 +71,14 @@ a:hover {
   width: 50%;
   text-align: center;
   cursor: pointer;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 .tab-group li a:hover {
-  background: #1E90FF;
+  background: #1e90ff;
   color: #ffffff;
 }
 .tab-group .active a {
-  background: #1E90FF;
+  background: #1e90ff;
   color: #ffffff;
 }
 
@@ -100,7 +102,7 @@ h2 {
 label {
   position: absolute;
   -webkit-transform: translateY(6px);
-          transform: translateY(6px);
+  transform: translateY(6px);
   left: 13px;
   color: rgba(255, 255, 255, 0.5);
   transition: all 0.25s ease;
@@ -110,12 +112,12 @@ label {
 }
 label .req {
   margin: 2px;
-  color: #1E90FF;
+  color: #1e90ff;
 }
 
 label.active {
   -webkit-transform: translateY(50px);
-          transform: translateY(50px);
+  transform: translateY(50px);
   left: 2px;
   font-size: 14px;
 }
@@ -127,7 +129,8 @@ label.highlight {
   color: #ffffff;
 }
 
-input, textarea {
+input,
+textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -138,11 +141,12 @@ input, textarea {
   border: 1px solid #a0b3b0;
   color: #ffffff;
   border-radius: 0;
-  transition: border-color .25s ease, box-shadow .25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: 0;
-  border-color: #1E90FF;
+  border-color: #1e90ff;
 }
 
 textarea {
@@ -177,14 +181,15 @@ textarea {
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  background: #1E90FF;
+  letter-spacing: 0.1em;
+  background: #1e90ff;
   color: #ffffff;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
-.button:hover, .button:focus {
-  background: #1E90FF;
+.button:hover,
+.button:focus {
+  background: #1e90ff;
 }
 
 .button-block {
@@ -195,4 +200,8 @@ textarea {
 .forgot {
   margin-top: -20px;
   text-align: right;
+}
+
+.jumbotron {
+  background-color: transparent !important;
 }
