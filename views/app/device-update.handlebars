@@ -1,31 +1,5 @@
 <body>
-<<<<<<< HEAD
-    <nav id="navbar" class="">
-        <div class="nav-wrapper">
-            <!-- Navbar Logo -->
-            <div class="logo">
-                <img id="xxxx" src="../assets/pictures/XXX.png" alt="SMAHT!">
-                <a class="logoAndFont" href="#home">Verigate</a>
-            </div>
-
-            <!-- Navbar Links -->
-            <ul id="menu">
-                <li><a href="#home">Home</a></li>
-                <!--
-   -->
-                <li><a href="#services">Services</a></li>
-                <!--
-   -->
-                <li><a href="#about">About</a></li>
-                <!--
-   -->
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-=======
     {{> nav }}
->>>>>>> 1e150777001184ea976c662c02413b239af46b7b
 
 
     <!-- Menu Icon -->
@@ -47,7 +21,7 @@
     <br>
     <div class="jumbotron jumbotron-fluid" style="none">
         <div class="container">
-            <h1 class="greeterMain">This is our device-update.handlebars file</h1>
+            <h1 class="greeterMain">Welcome back</h1>
 
             <div class="userMain">
                 {{#each gateData}}
@@ -77,8 +51,9 @@
                             <br>
                         </div>
 
-                        <button id="update-button" data-gate-id="{{gateID}}" type="submit">Update Device</button>
-                        <button id="back-button" type="submit">Go Back!</button>
+                        <button id="update-button" class="btn btn-primary" data-gate-id="{{gateID}}" type="submit">Update
+                            Device</button>
+                        <button id="back-button" class="btn btn-primary" type="submit">Go Back!</button>
                     </form>
                 </div>
 

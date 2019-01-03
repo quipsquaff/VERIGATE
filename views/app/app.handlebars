@@ -1,31 +1,5 @@
 <body>
-<<<<<<< HEAD
-    <nav id="navbar" class="">
-        <div class="nav-wrapper">
-            <!-- Navbar Logo -->
-            <div class="logo">
-                <img id="xxxx" src="../assets/pictures/XXX.png" alt="SMAHT!">
-                <a class="logoAndFont" href="#home">Verigate</a>
-            </div>
-
-            <!-- Navbar Links -->
-            <ul id="menu">
-                <li><a href="#home">Home</a></li>
-                <!--
-   -->
-                <li><a href="#services">Services</a></li>
-                <!--
-   -->
-                <li><a href="#about">About</a></li>
-                <!--
-   -->
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-=======
     {{> nav }}
->>>>>>> 1e150777001184ea976c662c02413b239af46b7b
 
 
     <!-- Menu Icon -->
@@ -43,37 +17,17 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
-<<<<<<< HEAD
     <br>
     <br>
-    <div class="jumbotron jumbotron-fluid" style="none">
+    <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="greeterMain">This is our app.handlebars file</h1>
+            <h1 class="greeterMain">Welcome back</h1>
 
             <ul class="userMain">
                 {{#each usersGates}}
 
                 <li>
-                    User: {{name}} <br>
-                    <button>{{unit_location}}</button>
-                    ( Switch Status: {{switch}} )
-                </li>
-
-                {{/each}}
-            </ul>
-        </div>
-=======
-<br>
-<br>
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="greeterMain">This is our app.handlebars file</h1>
-        
-        <ul class = "userMain">
-            {{#each usersGates}}
-        
-            <li>
-                {{!-- <form class="create-form">
+                    {{!-- <form class="create-form">
 
                         <div class="form-group">
                             <label for="switch">Switch</label>
@@ -82,14 +36,14 @@
                         </div>
 
                         <button id="update-switch" data-gate-id="{{gateID}}" type="submit">Update Switch</button>
-                </form> --}}
-                User: {{name}} <br>
-                <button id="update-switch" data-gate-id="{{gateID}}" data-currentswitch="{{switch}}" type="submit">{{unit_location}}</button>
-                ( Switch Status: {{switch}} )
-            </li>
-        
-            {{/each}}
-        </ul>
->>>>>>> 1e150777001184ea976c662c02413b239af46b7b
-    </div>
+                    </form> --}}
+                    User: {{name}} <br>
+                    <button class="btn btn-primary" id="update-switch" data-gate-id="{{gateID}}" data-currentswitch="{{switch}}"
+                        type="submit">{{unit_location}}</button>
+                    ( Switch Status: {{switch}} )
+                </li>
+
+                {{/each}}
+            </ul>
+        </div>
 </body>
