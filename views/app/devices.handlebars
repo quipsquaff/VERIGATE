@@ -4,7 +4,7 @@
             <!-- Navbar Logo -->
             <div class="logo">
                 <img id="xxxx" src="../assets/pictures/XXX.png" alt="SMAHT!">
-                <a class = "logoAndFont" href="#home">Verigate</a>
+                <a class="logoAndFont" href="#home">Verigate</a>
             </div>
 
             <!-- Navbar Links -->
@@ -39,56 +39,52 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
-<br>
-<br>
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="greeterMain">This is our devices.handlebars file</h1>
+    <br>
+    <br>
+    <div class="jumbotron jumbotron-fluid" style="none">
+        <div class="container">
+            <h1 class="greeterMain">This is our devices.handlebars file</h1>
 
-        <ul class = "userMain">
-            {{#each gatesTable}}
-        
-            <li>
-                <strong>GateID: #{{gateID}}</strong> <br>
-                Nickname: {{nickname}} <br>
-                Unit Location: {{unit_location}} <br>
-                SSID: {{SSID}} <br>
-                Pass: {{pass}} <br>
-                Switch Status: {{switch}} <br>
-                <button data-gate-id="{{gateID}}" class="update-gate">Change Gate Info</button>
-                <button data-gate-id="{{gateID}}" class="delete-gate">Delete Gate</button> <br>
-                <br><br>
-        
-            {{/each}}
-        </ul>
+            <ul class="userMain">
+                {{#each gatesTable}}
 
-        <div class="text-center mx-auto border border-dark py-1 px-5">
-            <h2>Add a Device</h2>
-            <form class="create-form">
+                <li>
+                    <strong>GateID: #{{gateID}}</strong> <br>
+                    Nickname: {{nickname}} <br>
+                    Unit Location: {{unit_location}} <br>
+                    SSID: {{SSID}} <br>
+                    Pass: {{pass}} <br>
+                    Switch Status: {{switch}} <br>
+                    <button data-gate-id="{{gateID}}" class="update-gate">Change Gate Info</button>
+                    <button data-gate-id="{{gateID}}" class="delete-gate">Delete Gate</button> <br>
+                    <br><br>
 
-                <div class="form-group">
-                <label for="name">Device Nickname:</label>
-                    <input type="text" id="device-nickname" name="name">
-                <br>
-                <label for="location">Unit Location:</label>
-                    <input type="text" id="device-location" name="location">
-                <br>
-                <label for="ssid">WiFi SSID:</label>
-                    <input type="text" id="device-wifi-ssid" name="ssid">
-                <br>
-                <label for="pass">WiFi Password:</label>
-                    <input type="text" id="device-wifi-pass" name="pass">
-                <br>
-                </div>
+                    {{/each}}
+            </ul>
 
-                <button type="submit">Add a Device</button>
-            </form>
+            <div class="text-center mx-auto border border-dark py-1 px-5">
+                <h2>Add a Device</h2>
+                <form class="create-form">
+
+                    <div class="form-group">
+                        <label for="name">Device Nickname:</label>
+                        <input type="text" id="device-nickname" name="name">
+                        <br>
+                        <label for="location">Unit Location:</label>
+                        <input type="text" id="device-location" name="location">
+                        <br>
+                        <label for="ssid">WiFi SSID:</label>
+                        <input type="text" id="device-wifi-ssid" name="ssid">
+                        <br>
+                        <label for="pass">WiFi Password:</label>
+                        <input type="text" id="device-wifi-pass" name="pass">
+                        <br>
+                    </div>
+
+                    <button type="submit">Add a Device</button>
+                </form>
+            </div>
+
         </div>
-
     </div>
-</div>
 </body>
-
-
-
-
