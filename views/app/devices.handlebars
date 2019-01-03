@@ -1,31 +1,5 @@
 <body>
-<<<<<<< HEAD
-    <nav id="navbar" class="">
-        <div class="nav-wrapper">
-            <!-- Navbar Logo -->
-            <div class="logo">
-                <img id="xxxx" src="../assets/pictures/XXX.png" alt="SMAHT!">
-                <a class="logoAndFont" href="#home">Verigate</a>
-            </div>
-
-            <!-- Navbar Links -->
-            <ul id="menu">
-                <li><a href="#home">Home</a></li>
-                <!--
-   -->
-                <li><a href="#services">Services</a></li>
-                <!--
-   -->
-                <li><a href="#about">About</a></li>
-                <!--
-   -->
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-=======
     {{> nav }}
->>>>>>> 1e150777001184ea976c662c02413b239af46b7b
 
 
     <!-- Menu Icon -->
@@ -47,7 +21,7 @@
     <br>
     <div class="jumbotron jumbotron-fluid" style="none">
         <div class="container">
-            <h1 class="greeterMain">This is our devices.handlebars file</h1>
+            <h1 class="greeterMain">Welcome back</h1>
 
             <ul class="userMain">
                 {{#each gatesTable}}
@@ -59,8 +33,9 @@
                     SSID: {{SSID}} <br>
                     Pass: {{pass}} <br>
                     Switch Status: {{switch}} <br>
-                    <button data-gate-id="{{gateID}}" class="update-gate">Change Gate Info</button>
-                    <button data-gate-id="{{gateID}}" class="delete-gate">Delete Gate</button> <br>
+                    <button class="btn btn-primary" data-gate-id="{{gateID}}" class="update-gate">Change Gate Info</button>
+                    <button class="btn btn-primary" data-gate-id="{{gateID}}" class="delete-gate">Delete Gate</button>
+                    <br>
                     <br><br>
 
                     {{/each}}
@@ -85,7 +60,7 @@
                         <br>
                     </div>
 
-                    <button type="submit">Add a Device</button>
+                    <button class="btn btn-primary" type="submit">Add a Device</button>
                 </form>
             </div>
 
