@@ -2,9 +2,9 @@
 var orm = require("../config/orm.js");
 
 var auth = {
-    userPass: function(cb) {
-        // The '4' located in the arguments below needs to be changed to req.body.uid or req.params.uid dependant on how we set up our route for registration/login.
-        orm.userPass(4, function(res) {
+    userPass: function(email, cb) {
+
+        orm.userPass(email, function(res) {
             cb(res);
         });
     }

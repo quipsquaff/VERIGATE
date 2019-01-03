@@ -12,27 +12,46 @@ passport.use(new LocalStrategy(
   },
   function(username, password, done) {
     // When a user tries to sign in this code runs
-    auth.userPass({
-      where: {
-        username: username
-      }
-    }).then(function(dbUser) {
-      if (!dbUser) {
+    auth.userPass(username, function (data) {
+
+      // If username is not located in the users table.
+      if (data[0] === undefined) {
+        console.log("invalid username");
+
         return done(null, false, {
           message: "Incorrect username."
         });
+
+      } else {
+        var dbPass = data[0].user_pass;
+        var userID = data[0].userID;
+
+        console.log("userID is " + userID);
+        console.log("from database: " + dbPass);
+        console.log("pass-thru argument: " + password);
+
+        // If password from database and password entered match.
+        if (dbPass === password) {
+          console.log("passwords match!");
+
+          return done(null, userID);
+
+        } else {
+
+          // ELSE (Password from database and password entered do not match)
+          console.log("invalid password");
+          
+
+          return done(null, false, {
+            message: "Incorrect password."
+          });
+        }
       }
-      // If there is a user with the given username, but the password the user gives us is incorrect
-      else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
-      }
-      // If none of the above, return the user
-      return done(null, dbUser);
+
+
     })
-  }
-));
+  })
+  )
 
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user

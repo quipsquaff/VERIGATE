@@ -12,7 +12,7 @@ var app = express();
 app.use(express.static("public"));
 
 // body parser stuff- i think this makes it easier for passport to take the inputs from the fields
-app.use(logger('dev'));
+// app.use(logger('dev')); // Commented out, requires: const logger = require('morgan');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
