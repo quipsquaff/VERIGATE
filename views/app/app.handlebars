@@ -24,6 +24,7 @@
             <h1 class="greeterMain">Welcome back</h1>
 
             <ul class="userMain">
+              {{#if isAuthenticated}}
                 {{#each usersGates}}
 
                 <li>
@@ -38,12 +39,13 @@
                         <button id="update-switch" data-gate-id="{{gateID}}" type="submit">Update Switch</button>
                     </form> --}}
                     User: {{name}} <br>
-                    <button class="btn btn-primary" id="update-switch" data-gate-id="{{gateID}}" data-currentswitch="{{switch}}"
+                    <button class="btn btn-primary update-switch" data-gate-id="{{gateID}}" data-currentswitch="{{switch}}"
                         type="submit">{{unit_location}}</button>
                     ( Switch Status: {{switch}} )
                 </li>
 
                 {{/each}}
+                {{/if}}
             </ul>
         </div>
 </body>

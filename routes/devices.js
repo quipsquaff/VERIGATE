@@ -2,7 +2,6 @@ var express = require('express');
 var router  = express.Router();
 
 var devices_controller = require('../controllers/devices_controller');
-var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
 router.get('/', devices_controller.index); // Route to devices page.

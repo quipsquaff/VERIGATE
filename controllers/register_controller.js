@@ -28,5 +28,5 @@ exports.loginUser = function(req, res) {
 
 var userID = res.req.user;
 
-res.json("/application/" + userID);
+res.json("/application/");
 };

@@ -36,7 +36,7 @@ app.use(session({
  } )); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+// app.use(flash()); // use connect-flash for flash messages stored in session
 app.use(authCheck);
 
 require('./routes')(app); // This allows us to pass the Express app into the routes.js file.

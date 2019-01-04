@@ -3,7 +3,9 @@ var main = require("../models/main");
 var devices = require("../models/devices")
 
 exports.index = function (req, res) {
-  main.whichGates(req.params.id, function (data) {
+  console.log("req: ")
+  console.log(req.user)
+  main.whichGates(req.user, function (data) {
     res.render('app/app', {
       layout: 'main-app',
       usersGates: data
@@ -13,9 +15,9 @@ exports.index = function (req, res) {
 
 exports.updateSwitch = function (req, res) {
   console.log("updateSwitch is functioning");
-  console.log(req.body)
+  console.log(req.user)
   var updateSwitch = {
-    // gateID : req.body.gateID,
+    gateID : req.body.gateID,
     switch : req.body.switch
   };
 

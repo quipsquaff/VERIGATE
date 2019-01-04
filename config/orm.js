@@ -148,6 +148,7 @@ var orm = {
         });
     },
 
+    
      
 
     updateSwitch: function(tableName, objColVals, colName, gateID, cb) {
@@ -155,13 +156,18 @@ var orm = {
 
         var queryString = "UPDATE " + tableName;
         queryString += " SET ";
-        queryString += objToSql(objColVals);
+        queryString += Object.keys(objColVals)[1];
+        queryString += " = ";
+        queryString += Object.values(objColVals)[1];
         queryString += " WHERE ";
         queryString += " gateID =  ";
-        queryString += gateID;
+        queryString += Object.values(objColVals)[0];
 
-        console.log(queryString);
-        
+        console.log("queryString: " + queryString);
+        // console.log(objColVals)
+        // console.log("----")
+        // console.log(Object.values(objColVals)[0])
+        // console.log("----")
         connection.query(queryString, function(err, result) {
             if (err) {
               throw err;

@@ -39,10 +39,12 @@ $(function () {
     });
     
     function loginUser(username, password) {
-        $.post("/login", {
+        $.post("/", {
           username: username,
           password: password
         }).then(function(data) {
+          console.log("login page data: ")
+          console.log(data)
           window.location.replace(data);
           // If there's an error, log the error
         }).catch(function(err) {
