@@ -12,9 +12,7 @@ CREATE TABLE gates (
 	gateID INT UNSIGNED AUTO_INCREMENT,
     unit_location VARCHAR(255) NOT NULL DEFAULT "",
     nickname VARCHAR(45) NOT NULL DEFAULT "",
-    SSID VARCHAR(255) NOT NULL DEFAULT "", -- SSiD and Password to the wifi signal that Verigate can access.
-    pass VARCHAR(255) NOT NULL DEFAULT "",
-    ip VARCHAR(20) NOT NULL DEFAULT "",
+    deviceID VARCHAR(45) NOT NULL DEFAULT "",
     switch VARCHAR(2) DEFAULT "0", -- This is the value that will be referenced to allow multiple users to open doors or turn on our test/dev LED.
     PRIMARY KEY (gateID)
     );
