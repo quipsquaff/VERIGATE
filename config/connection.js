@@ -8,9 +8,9 @@ if (process.env.JAWSDB_URL) {
 } else {
   connection = mysql.createConnection({
     host: "localhost",
-    port: 3306,
+    port: 3307,
     user: "root",
-    password: "pol1cestate", 
+    password: "root", 
     database: "verigate_db"
   });
 }
