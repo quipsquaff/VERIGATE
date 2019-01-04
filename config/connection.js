@@ -5,13 +5,23 @@ var connection;
 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
+}
+// else {
+//   connection = mysql.createConnection({
+//     host: "localhost",
+//     port: 3306,
+//     user: "root",
+//     password: "pol1",
+//     database: "verigate_db"
+//   });
+// }
+else {
   connection = mysql.createConnection({
-    host: "localhost",
+    host: "mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	",
     port: 3306,
-    user: "root",
-    password: "pol1", 
-    database: "verigate_db"
+    user: "j5ca9ukxi4wxnthu",
+    password: "k7mh326610qhza98",
+    database: "erh43iwcbx9r7jxk"
   });
 }
 
