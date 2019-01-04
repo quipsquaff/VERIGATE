@@ -1,4 +1,4 @@
-INSERT INTO gates (unit_location, nickname, SSID, pass, ip, switch)
+INSERT INTO gates (unit_location, nickname, deviceID, switch)
     VALUES
         ("Room 307", "UCLAx Coding Bootcamp TTh", "vgt-aaa-0000", "0"),
         ("Front Door", "UCLAx", "vgt-aaa-0001", "0"),
