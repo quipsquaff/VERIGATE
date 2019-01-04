@@ -2,9 +2,13 @@
 module.exports = function(req, res, next) {
   // If the user is logged in, continue with the request to the restricted route
   if (req.user) {
+    console.log("middleware working- TRUE")
     return next();
   }
+  
   req.flash('unAuthenticated', 'Sorry, you must be logged in to see that');
+  console.log("middleware working- FLASE")
   // If the user isnt' logged in, redirect them to the login page
-  return res.redirect("/");
+  // i think this redirect is fine- it's saying if user is not authtenticated then redirect to / ,which in our case is login. 
+  return res.redirect("/"); 
 };

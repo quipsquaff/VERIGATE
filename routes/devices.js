@@ -3,6 +3,7 @@ var router  = express.Router();
 
 var devices_controller = require('../controllers/devices_controller');
 
+
 router.get('/', devices_controller.index); // Route to devices page.
 
 router.get('/:id', devices_controller.updatepage); // Route to specific device update page.

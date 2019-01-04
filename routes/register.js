@@ -9,7 +9,7 @@ router.get('/', register_controller.index);
 
 router.get('/sign-out', register_controller.signOutUser);
 
-router.post('/login', passport.authenticate("local"), register_controller.loginUser);
+router.post('/', passport.authenticate("local"), register_controller.loginUser);
 
 router.post('/register', register_controller.create);
 
