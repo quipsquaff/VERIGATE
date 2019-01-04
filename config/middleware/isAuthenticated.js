@@ -1,6 +1,8 @@
 // This is middleware for restrictng routes a user is not allowed to visit if not logged in
 module.exports = function(req, res, next) {
   // If the user is logged in, continue with the request to the restricted route
+  // Data about the user when they log in is stored in req
+  // user req.user to get the user id, similar to params.id
   if (req.user) {
     console.log("middleware working- TRUE")
     return next();

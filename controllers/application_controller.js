@@ -23,7 +23,6 @@ exports.updateSwitch = function (req, res) {
 
   var gateID = req.body.gateID
   console.log("gateID: " + gateID);
-
   devices.updateSwitch(updateSwitch, gateID, function (result) {
     res.status(200).end();
   });

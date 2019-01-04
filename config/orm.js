@@ -149,25 +149,20 @@ var orm = {
     },
 
     
-     
+    // query for button switch. seems to be getting the wrong gateID from update-switch.js 
 
     updateSwitch: function(tableName, objColVals, colName, gateID, cb) {
       // var queryString = "UPDATE gates SET switch = " +  1 + " WHERE gateID = " + 2;
 
         var queryString = "UPDATE " + tableName;
         queryString += " SET ";
-        queryString += Object.keys(objColVals)[1];
+        queryString += Object.keys(objColVals)[1]; // switch
         queryString += " = ";
-        queryString += Object.values(objColVals)[1];
+        queryString += Object.values(objColVals)[1]; // value for switch
         queryString += " WHERE ";
         queryString += " gateID =  ";
-        queryString += Object.values(objColVals)[0];
+        queryString += Object.values(objColVals)[0]; // value for gate
 
-        console.log("queryString: " + queryString);
-        // console.log(objColVals)
-        // console.log("----")
-        // console.log(Object.values(objColVals)[0])
-        // console.log("----")
         connection.query(queryString, function(err, result) {
             if (err) {
               throw err;

@@ -15,6 +15,10 @@ $(function () {
       gateID: gateID
     };
 
+    // Ted and Tristan believe the switch statement or the if/else statement
+    // commented out below may be the cause of gateID being sent to orm as 1
+    // maybe it's not iterating correctly?
+
     switch (currentSwitch) {
       case 0:
         console.log("current switch = 0 and is being changed to 1")
