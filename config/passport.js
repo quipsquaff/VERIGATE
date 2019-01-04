@@ -26,19 +26,19 @@ passport.use(new LocalStrategy(
 
       } else {
 
-        var hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
-
-        console.log("hashpass: " + hashPass);
-
         var dbPass = data[0].user_pass;
         var userID = data[0].userID;
 
-        console.log("userID is " + userID);
-        console.log("from database(dbPass): " + dbPass);
-        console.log("pass-thru argument(hashPass): " + hashPass);
+        // console.log("userID is " + userID);
+        // console.log("from database(dbPass): " + dbPass);
+        // console.log("pass-thru argument(hashPass): " + hashPass);
+
+        var bcryptCompare = bcrypt.compareSync(password, dbPass);
+        
+        console.log(bcryptCompare);
 
         // If password from database and password entered match.
-        if (dbPass === hashPass) {
+        if (bcryptCompare) {
           console.log("passwords match!");
 
           return done(null, userID);
