@@ -119,7 +119,10 @@ a {
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
 }
-
+.container {
+  align-content: center;
+  text-align: center;
+}
 /* Animated Bottom Line */
 #navbar li a:before,
 #navbar li a:after {
