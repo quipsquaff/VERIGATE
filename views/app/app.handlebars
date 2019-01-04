@@ -1,51 +1,54 @@
 <body>
-    {{> nav }}
+  {{> nav }}
 
 
-    <!-- Menu Icon -->
-    <div class="menuIcon">
-        <span class="icon icon-bars"></span>
-        <span class="icon icon-bars overlay"></span>
+  <!-- Menu Icon -->
+  <div class="menuIcon">
+    <span class="icon icon-bars"></span>
+    <span class="icon icon-bars overlay"></span>
+  </div>
+
+
+  <div class="overlay-menu">
+    <ul id="menu">
+<!-- handlebars to only allow admin to view devices (not working) -->
+      <li><a href="#home">Home</a></li>
+      {{!-- {{#if admin}}  --}}
+      <li><a href="#services">Devices</a></li> 
+      {{!-- {{else}} --}}
+      {{!-- <li><a href="#">TEST</a></li>  --}}
+      {{!-- {{/if admin}} --}}
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+
+    </ul>
+  </div>
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="greeterMain">Welcome back</h1>
+
+      <ul class="userMain">
+        {{!-- {{#if isAuthenticated}} --}} {{#each usersGates}}
+
+        <li>
+          {{!--
+          <form class="create-form">
+
+            <div class="form-group">
+              <label for="switch">Switch</label>
+              <input type="text" id="switch" name="switch">
+              <br>
+            </div>
+
+            <button id="update-switch" data-gate-id="{{gateID}}" type="submit">Update Switch</button>
+          </form> --}} User: {{name}} <br>
+          <button class="btn btn-primary update-switch" data-gate-id="{{gateID}}" data-currentswitch="{{switch}}" type="submit">{{unit_location}}</button>
+          ( Switch Status: {{switch}} )
+        </li>
+
+        {{/each}} {{!-- {{/if}} --}}
+      </ul>
     </div>
-
-
-    <div class="overlay-menu">
-        <ul id="menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Devices</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="greeterMain">Welcome back</h1>
-
-            <ul class="userMain">
-              {{#if isAuthenticated}}
-                {{#each usersGates}}
-
-                <li>
-                    {{!-- <form class="create-form">
-
-                        <div class="form-group">
-                            <label for="switch">Switch</label>
-                            <input type="text" id="switch" name="switch">
-                            <br>
-                        </div>
-
-                        <button id="update-switch" data-gate-id="{{gateID}}" type="submit">Update Switch</button>
-                    </form> --}}
-                    User: {{name}} <br>
-                    <button class="btn btn-primary update-switch" data-gate-id="{{gateID}}" data-currentswitch="{{switch}}"
-                        type="submit">{{unit_location}}</button>
-                    ( Switch Status: {{switch}} )
-                </li>
-
-                {{/each}}
-                {{/if}}
-            </ul>
-        </div>
 </body>

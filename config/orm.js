@@ -51,7 +51,7 @@ var orm = {
     // Method to allow us to determine what gates a user has access to.
     whichGates: function(uid, cb) {
         // Creates a queryString that joins the 'users' and 'gates' tables using our junction table 'gates_users'.
-        var queryString = "SELECT users.userID, users.name, gates.unit_location, gates.nickname, gates.switch, gates.gateID FROM gates INNER JOIN gates_users ON gates.gateID = gates_users.gateID INNER JOIN users ON gates_users.userID = users.userID WHERE users.userID = ?;"
+        var queryString = "SELECT users.userID, users.name, users.admin, gates.unit_location, gates.nickname, gates.switch, gates.gateID FROM gates INNER JOIN gates_users ON gates.gateID = gates_users.gateID INNER JOIN users ON gates_users.userID = users.userID WHERE users.userID = ?;"
         // Opens a connection to our database and performs the above query while inserting the needed values.
         connection.query(queryString, [uid], function(err, result) {
             if (err) {
