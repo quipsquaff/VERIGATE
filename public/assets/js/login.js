@@ -23,7 +23,8 @@ $(function () {
 
         var userData = {
             email: $("#user-email").val().trim(),
-            password: $("#user-password").val().trim(),
+            // password: $("#user-password").val().trim(),
+            // password: 
         }
 
         if (!userEmail) {

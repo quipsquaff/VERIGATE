@@ -1,5 +1,7 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
+// var users = require("../models/registration-testing");
+var bcrypt = require("bcrypt-nodejs");
 
 var auth = require("../models/auth");
 // var db = require("../models");
@@ -25,6 +27,11 @@ passport.use(new LocalStrategy(
       } else {
         var dbPass = data[0].user_pass;
         var userID = data[0].userID;
+        // users.beforeCreate(password, function(result) {
+        //   console.log(result);
+        // });
+        password = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+        console.log(password);
 
         console.log("userID is " + userID);
         console.log("from database: " + dbPass);
@@ -32,6 +39,7 @@ passport.use(new LocalStrategy(
 
         // If password from database and password entered match.
         if (dbPass === password) {
+          
           console.log("passwords match!");
 
           return done(null, userID);
