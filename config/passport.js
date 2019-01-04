@@ -4,6 +4,8 @@ var LocalStrategy = require("passport-local").Strategy;
 var auth = require("../models/auth");
 // var db = require("../models");
 
+var bcrypt = require("bcrypt-nodejs");
+
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
@@ -23,15 +25,20 @@ passport.use(new LocalStrategy(
         });
 
       } else {
+
+        var hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+
+        console.log("hashpass: " + hashPass);
+
         var dbPass = data[0].user_pass;
         var userID = data[0].userID;
 
         console.log("userID is " + userID);
-        console.log("from database: " + dbPass);
-        console.log("pass-thru argument: " + password);
+        console.log("from database(dbPass): " + dbPass);
+        console.log("pass-thru argument(hashPass): " + hashPass);
 
         // If password from database and password entered match.
-        if (dbPass === password) {
+        if (dbPass === hashPass) {
           console.log("passwords match!");
 
           return done(null, userID);
