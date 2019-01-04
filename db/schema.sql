@@ -24,7 +24,7 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL DEFAULT "",
     email VARCHAR(100) NOT NULL DEFAULT "",
     admin BOOLEAN DEFAULT 0,
-    user_pass VARCHAR(255) NOT NULL DEFAULT "1234",
+    user_pass VARCHAR(255) NOT NULL DEFAULT "$2a$10$4OG93bFxzLt.KxTizKzqOeveILGr9fe3/JOB0o3rNDU/xE0yCOxvq",
     PRIMARY KEY (userID)
     );
     
