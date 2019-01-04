@@ -3,6 +3,8 @@ var router  = express.Router();
 
 var application_controller = require('../controllers/application_controller');
 // var devices_controller = require("../controllers/devices_controller");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 
 router.get('/:id', application_controller.index);
 

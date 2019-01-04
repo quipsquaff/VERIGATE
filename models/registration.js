@@ -1,44 +1,13 @@
-'use strict';
-var bcrypt = require("bcrypt-nodejs");
+// Import our ORM to create functions that will interact with the database for the registration page.
+var orm = require("../config/orm.js");
 
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [6]
-      }
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isEmail: true
-      }
-    },
-    // The password cannot be null
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
+var users = {
+    create: function(name, email, pass, cb) {
+        orm.create("users", ["name", "email", "admin", "user_pass"], [name, email, 1, pass], function(res) {
+            cb(res);
+        });
     }
-  }, {
-    // Hooks are automatic methods that run during various phases of the User Model lifecycle
-    // In this case, before a User is created, we will automatically hash their password
-    hooks: {
-      beforeCreate: function(user, options) {
-        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-      }
-    }
-  });
-  User.prototype.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-  }
-  User.associate = function(models) {
-    // associations can be defined here
-    User.hasMany(models.Trip, {
-      onDelete: "cascade"
-    });
-  }
-  return User;
-};
+}
+
+// Export the database functions for our controllers.
+module.exports = users;

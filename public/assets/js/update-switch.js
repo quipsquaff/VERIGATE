@@ -19,21 +19,11 @@ $(function () {
       console.log("current switch = 0 and is being changed to 1")
       updateState.switch = 1
       currentSwitch = 1
-      // updateState = {
-      //   switch: "1",
-      //   gateID: gateID
-      // }
     } else if (currentSwitch === 1) {
       console.log("current switch = 1 and is being changed to 0")
       updateState.switch = 0
       currentSwitch = 0
-      // updateState = {
-      //   switch: "0",
-      //   gateID: gateID
-      // };
     }
-
-
 
     console.log("updateState: " + updateState.switch);
 

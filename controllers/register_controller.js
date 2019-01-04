@@ -1,5 +1,5 @@
 // Import the model (/models/main.js) to use our database functions.
-var users = require("../models/registration-testing.js");
+var users = require("../models/registration.js");
 
 var bcrypt = require("bcrypt-nodejs");
 
