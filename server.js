@@ -38,6 +38,8 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 app.use(authCheck);
+// app.use(app.router);
+
 
 require('./routes')(app); // This allows us to pass the Express app into the routes.js file.
 
@@ -51,11 +53,7 @@ app.use(function(req, res, next) {
 // error handler
 // no stacktraces leaked to user unless in development environment
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: (app.get('env') === 'development') ? err : {}
-  })
+  console.log("ERROR: " + err.message)
 });
 
 

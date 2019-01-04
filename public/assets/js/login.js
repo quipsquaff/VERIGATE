@@ -38,17 +38,27 @@ $(function () {
 
   });
 
-  function loginUser(username, password) {
-    $.post("/login", {
-      username: username,
-      password: password
-    }).then(function (data) {
-      window.location.replace(data);
-      // If there's an error, log the error
-    }).catch(function (err) {
-      console.log("incorrect password")
-    });
+  // function loginUser(username, password) {
+  //   $.post("/login", {
+  //     username: username,
+  //     password: password
+  //   }).then(function (data) {
+  //     window.location.replace(data);
+  //     // If there's an error, log the error
+  //   }).catch(function (err) {
+  //     console.log("incorrect password")
+  //   });
+  // }
+
+  function loginUser(email, password) {
+    app.post('/login',
+      passport.authenticate('local', {
+        successRedirect: '/application/',
+        failureRedirect: '/login'
+      }));
   }
+  // + req.user.userID
+
 
 
 });

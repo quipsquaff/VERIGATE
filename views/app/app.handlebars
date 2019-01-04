@@ -24,6 +24,7 @@
             <h1 class="greeterMain">Welcome back</h1>
 
             <ul class="userMain">
+              {{#if isAuthenticated}}
                 {{#each usersGates}}
 
                 <li>
@@ -44,6 +45,7 @@
                 </li>
 
                 {{/each}}
+                {{/if}}
             </ul>
         </div>
 </body>

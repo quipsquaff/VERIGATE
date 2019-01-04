@@ -8,18 +8,18 @@ var auth = require("../models/auth");
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
-    usernameField: "username"
+    email: "email"
   },
-  function(username, password, done) {
+  function(email, password, done) {
     // When a user tries to sign in this code runs
-    auth.userPass(username, function (data) {
+    auth.userPass(email, function (data) {
 
       // If username is not located in the users table.
       if (data[0] === undefined) {
-        console.log("invalid username");
+        console.log("invalid email");
 
         return done(null, false, {
-          message: "Incorrect username."
+          message: "Incorrect email."
         });
 
       } else {
@@ -48,7 +48,6 @@ passport.use(new LocalStrategy(
         }
       }
 
-
     })
   })
   )
@@ -57,7 +56,7 @@ passport.use(new LocalStrategy(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+  cb(null, userID);
 });
 
 passport.deserializeUser(function(obj, cb) {
