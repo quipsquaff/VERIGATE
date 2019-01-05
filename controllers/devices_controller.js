@@ -46,7 +46,7 @@ exports.createJunction = function(req, res) {
 
 // Delete data from the 'gates' table
 exports.delete = function(req, res) {
-    devices.delete(req.params.id, function(result) {
+    devices.delete(req.params.id, req.user, function(result) {
         if (result.affectedRows === 0) {
             return res.status(404).end()
         }

@@ -18,8 +18,8 @@ var devices = {
             cb(res);
         });
     },
-    delete: function(id, cb) {
-        orm.delete("gates", "gateID", id, function(res) {
+    delete: function(id, uid, cb) {
+        orm.delete("gates_users", "gateID", id, "userID", uid, function(res) {
             cb(res);
         });
     },

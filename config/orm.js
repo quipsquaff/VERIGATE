@@ -114,10 +114,10 @@ var orm = {
         });
         
     },
-    delete: function(tableName, colName, id, cb) {
-        var queryString = "DELETE FROM ?? WHERE ?? = ?;"
+    delete: function(tableName, colNameOne, idOne, colNameTwo, idTwo, cb) {
+        var queryString = "DELETE FROM ?? WHERE ?? = ? AND ?? = ?;"
         // Opens a connection to our database and performs the above query while inserting the needed values.
-        connection.query(queryString, [tableName, colName, id], function(err, result) {
+        connection.query(queryString, [tableName, colNameOne, idOne, colNameTwo, idTwo], function(err, result) {
             if (err) {
                 throw err;
             }
