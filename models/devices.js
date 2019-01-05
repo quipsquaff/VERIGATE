@@ -13,8 +13,8 @@ var devices = {
             cb(res);
         });
     },
-    create: function(location, nickname, ssid, pass, cb) {
-        orm.create("gates", ["unit_location", "nickname", "SSID", "pass"], [location, nickname, ssid, pass], function(res) {
+    createJunction: function(location, nickname, deviceID, uid, cb) {
+        orm.createJunction("gates", ["unit_location", "nickname", "deviceID"], [location, nickname, deviceID], uid, function(res) {
             cb(res);
         });
     },

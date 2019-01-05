@@ -28,9 +28,17 @@ exports.updatepage = function(req, res) {
     });
 };
 
-// Add new Device to the 'gates' table
+// Add new Device to the 'gates' table AND the 'gates_users' table
 exports.create = function(req, res) {
     devices.create(req.body.location, req.body.nickname, req.body.deviceID, function(result) {
+        // Send back the ID of the new device
+        res.json({ id: result.insertId });
+      });
+}
+
+// Add new Device to the 'gates' table AND the 'gates_users' table
+exports.createJunction = function(req, res) {
+    devices.createJunction(req.body.location, req.body.nickname, req.body.deviceID, req.user, function(result) {
         // Send back the ID of the new device
         res.json({ id: result.insertId });
       });

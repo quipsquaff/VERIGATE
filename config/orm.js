@@ -114,8 +114,6 @@ var orm = {
         });
         
     },
-
-
     delete: function(tableName, colName, id, cb) {
         var queryString = "DELETE FROM ?? WHERE ?? = ?;"
         // Opens a connection to our database and performs the above query while inserting the needed values.
@@ -126,9 +124,6 @@ var orm = {
             cb(result);
         });
     },
-
-
-
     update: function(tableName, objColVals, colName, id, cb) {
         var queryString = "UPDATE " + tableName;
         
@@ -147,10 +142,6 @@ var orm = {
             cb(result);
         });
     },
-
-    
-     
-
     updateSwitch: function(tableName, objColVals, colName, gateID, cb) {
       // var queryString = "UPDATE gates SET switch = " +  1 + " WHERE gateID = " + 2;
 
@@ -174,6 +165,59 @@ var orm = {
             }
             cb(result);
         });
+    },
+    createJunction: function(tableOneName, colsOne, valsOne, valsTwo, cb) {
+        // var queryString1 = "INSERT INTO gates (unit_location,nickname,deviceID) VALUES ('test','myNickname','vgt-abc-777');"
+        // var queryString2 = "INSERT INTO gates_users (userID,gateID) VALUES (4,LAST_INSERT_ID());"
+        var queryString1 = "INSERT INTO " + tableOneName;
+        queryString1 += " (";
+        queryString1 += colsOne.toString();
+        queryString1 += ") ";
+        queryString1 += "VALUES (";
+        queryString1 += printQuestionMarks(valsOne.length);
+        queryString1 += ");";
+
+        console.log(queryString1);
+
+        var queryString2 = "INSERT INTO gates_users (userID,gateID) VALUES (" + valsTwo;
+        queryString2 += ",LAST_INSERT_ID()); "
+
+        console.log(queryString2);
+
+        /* Begin transaction */
+        connection.beginTransaction(function(err, result) {
+            if (err) { throw err; }
+            connection.query(queryString1, valsOne, function(err, result) {
+            if (err) { 
+                connection.rollback(function() {
+                throw err;
+                });
+            }
+        
+            connection.query(queryString2, function(err, result) {
+                if (err) { 
+                connection.rollback(function() {
+                    throw err;
+                });
+                }  
+                connection.commit(function(err) {
+                if (err) { 
+                    connection.rollback(function() {
+                    throw err;
+                    });
+                }
+                console.log('Transaction Complete.');
+                });
+            });
+
+            cb(result);
+
+            });
+        });
+        /* End transaction */
+
+
+
     }
 
         
