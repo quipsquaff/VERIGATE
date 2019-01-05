@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 router.get('/', register_controller.index);
 
-router.get('/sign-out', register_controller.signOutUser);
+// router.get('/signout', register_controller.signOutUser);
 
 router.post('/', passport.authenticate("local"), register_controller.loginUser);
 

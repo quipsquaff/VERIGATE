@@ -10,4 +10,5 @@ module.exports = function(app){
     app.use('/application', application) ; // Registration page
     app.use('/devices', devices); // add-remove devices page
     app.use('/auth', auth)
+
 }

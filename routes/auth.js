@@ -6,6 +6,8 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
 router.get('/application/', ensureAuthenticated, auth_controller.index);
+router.get('/signout', auth_controller.signOutUser);
+
 
 function ensureAuthenticated(){
   if(req.isAuthenticated()){

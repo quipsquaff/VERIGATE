@@ -32,7 +32,8 @@ app.set("view engine", "handlebars");
 app.use(session({
 	secret: 'vidyapathaisalwaysrunning',
 	resave: true,
-	saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { maxAge: 300000 }
  } )); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
