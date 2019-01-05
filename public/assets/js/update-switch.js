@@ -42,15 +42,19 @@ $(function () {
     }).then(
       function () {
         console.log("STATE UPDATED");
+            // trying to set a timer to reset the page to help with 
+            // node-red server sending mysql signal to turn off switch
+            // but i think some type of 
+
+        // setTimeout(function () {
+
         // Reload the page to get the updated list
-        // window.location.href = "/devices/";
-        setTimeout(function () {
+        // window.location.href = "/application/";
+        location.reload();
 
-          window.location.href = "/application/";
-        }, 650);
+        // }, 1250);
 
 
-        // location.reload();
       }
     );
   });
