@@ -23,13 +23,13 @@ exports.updateSwitch = function (req, res) {
 
   var gateID = req.body.gateID
   console.log("gateID: " + gateID);
-  
+
   // This keeps refreshing the switch status every 500ms
-  setInterval(function () {
+  // setInterval(function () {
     devices.updateSwitch(updateSwitch, gateID, function (result) {
       res.status(200).end();
     });
-  }, 500);
+  // }, 500);
 
 };
 
