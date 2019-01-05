@@ -21,8 +21,7 @@ $(".create-form").on("submit", function (event) {
     var newDevice = {
       nickname: $("#device-nickname").val().trim(),
       location: $("#device-location").val().trim(),
-      ssid: $("#device-wifi-ssid").val().trim(),
-      pass: $("#device-wifi-pass").val().trim()
+      deviceID: $("#device-id").val().trim(),
     };
 
     console.log(newDevice);

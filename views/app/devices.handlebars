@@ -31,11 +31,10 @@
                     <strong>GateID: #{{gateID}}</strong> <br>
                     Nickname: {{nickname}} <br>
                     Unit Location: {{unit_location}} <br>
-                    SSID: {{SSID}} <br>
-                    Pass: {{pass}} <br>
+                    Device ID: {{deviceID}} <br>
                     Switch Status: {{switch}} <br>
-                    <button class="btn btn-primary" data-gate-id="{{gateID}}" class="update-gate">Change Gate Info</button>
-                    <button class="btn btn-primary" data-gate-id="{{gateID}}" class="delete-gate">Delete Gate</button>
+                    <button class="btn btn-primary update-gate" data-gate-id="{{gateID}}">Change Gate Info</button>
+                    <button class="btn btn-primary delete-gate" data-gate-id="{{gateID}}">Delete Gate</button>
                     <br>
                     <br><br>
 
@@ -53,11 +52,8 @@
                         <label for="location">Unit Location:</label>
                         <input type="text" id="device-location" name="location">
                         <br>
-                        <label for="ssid">WiFi SSID:</label>
-                        <input type="text" id="device-wifi-ssid" name="ssid">
-                        <br>
-                        <label for="pass">WiFi Password:</label>
-                        <input type="text" id="device-wifi-pass" name="pass">
+                        <label for="deviceID">Device ID:</label>
+                        <input type="text" id="device-id" name="deviceID">
                         <br>
                     </div>
 

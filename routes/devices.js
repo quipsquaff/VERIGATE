@@ -9,7 +9,7 @@ router.get('/', isAuthenticated, devices_controller.index); // Route to devices 
 
 router.get('/:id', isAuthenticated, devices_controller.updatepage); // Route to specific device update page.
 
-router.post('/', isAuthenticated, devices_controller.create); // POST route to add a device to the 'gates' table.
+router.post('/', isAuthenticated, devices_controller.createJunction); // POST route to add a device to the 'gates' table.
 
 router.put('/:id', isAuthenticated, devices_controller.update); // PUT route to UPDATE a device in the 'gates' table.
 

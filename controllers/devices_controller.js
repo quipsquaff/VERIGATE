@@ -3,7 +3,9 @@ var devices = require("../models/devices.js");
 
 // Retrieve 'gates' table data
 exports.index = function(req, res) {
-    devices.queryTable(function (data) {
+    console.log("req.user: " + req.user);
+
+    devices.whichGates(req.user, function (data) {
         var hbsObject = {
             layout: 'main-devices',
             gatesTable: data
@@ -26,9 +28,17 @@ exports.updatepage = function(req, res) {
     });
 };
 
-// Add new Device to the 'gates' table
+// Add new Device to the 'gates' table AND the 'gates_users' table
 exports.create = function(req, res) {
-    devices.create(req.body.location, req.body.nickname, req.body.ssid, req.body.pass, function(result) {
+    devices.create(req.body.location, req.body.nickname, req.body.deviceID, function(result) {
+        // Send back the ID of the new device
+        res.json({ id: result.insertId });
+      });
+}
+
+// Add new Device to the 'gates' table AND the 'gates_users' table
+exports.createJunction = function(req, res) {
+    devices.createJunction(req.body.location, req.body.nickname, req.body.deviceID, req.user, function(result) {
         // Send back the ID of the new device
         res.json({ id: result.insertId });
       });
@@ -51,8 +61,7 @@ exports.update = function(req, res) {
     var updateDevice = {
         nickname: req.body.nickname,
         unit_location: req.body.unit_location,
-        SSID: req.body.SSID,
-        pass: req.body.pass
+        deviceID: req.body.deviceID
     };
 
     var gateID = req.body.gateID

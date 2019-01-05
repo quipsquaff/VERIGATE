@@ -10,19 +10,10 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "root",
+    password: "",
     database: "verigate_db"
   });
 }
-// else {
-//   connection = mysql.createConnection({
-//     host: "mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-//     port: 3306,
-//     user: "j5ca9ukxi4wxnthu",
-//     password: "k7mh326610qhza98",
-//     database: "erh43iwcbx9r7jxk"
-//   });
-// }
 
 // Make connection.
 connection.connect(function(err) {
