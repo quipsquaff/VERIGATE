@@ -395,3 +395,8 @@ a {
 .jumbotron {
   background-color: transparent !important;
 }
+
+footer {
+  align-content: center;
+  text-align: center;
+}
