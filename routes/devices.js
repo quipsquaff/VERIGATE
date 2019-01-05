@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 router.get('/', isAuthenticated, devices_controller.index); // Route to devices page.
 
-router.get('/update/:id', isAuthenticated, devices_controller.updatepage); // Route to specific device update page.
+router.get('/:id', isAuthenticated, devices_controller.updatepage); // Route to specific device update page.
 
 router.post('/', isAuthenticated, devices_controller.createJunction); // POST route to add a device to the 'gates' table.
 

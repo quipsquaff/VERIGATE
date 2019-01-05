@@ -45,9 +45,9 @@ $(".update-gate").on("click", function(event) {
   // Get the correct gateID from the corresponding button's data attribute.
   var id = $(this).data("gate-id");
   // AJAX call for GET request.
-  $.get("/devices/update/" + id, function(data, status){
+  $.get("/devices/" + id, function(data, status){
     // console.log("Data: " + data + "\nStatus: " + status);
-    window.location.href = "/devices/update/" + id; // JavaScript redirect to update page for the specific device clicked.
+    window.location.href = "/devices/" + id; // JavaScript redirect to update page for the specific device clicked.
   });
 })
 
