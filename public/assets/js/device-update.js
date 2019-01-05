@@ -14,8 +14,7 @@ $(".create-form").on("submit", function (event) {
   var updateDevice = {
     nickname: $("#device-nickname").val().trim(),
     unit_location: $("#device-location").val().trim(),
-    SSID: $("#device-wifi-ssid").val().trim(),
-    pass: $("#device-wifi-pass").val().trim(),
+    deviceID: $("#device-id").val().trim(),
     gateID: gateID
   };
 
