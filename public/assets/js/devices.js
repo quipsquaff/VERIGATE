@@ -21,8 +21,7 @@ $(".create-form").on("submit", function (event) {
     var newDevice = {
       nickname: $("#device-nickname").val().trim(),
       location: $("#device-location").val().trim(),
-      ssid: $("#device-wifi-ssid").val().trim(),
-      pass: $("#device-wifi-pass").val().trim()
+      deviceID: $("#device-id").val().trim(),
     };
 
     console.log(newDevice);
@@ -46,9 +45,9 @@ $(".update-gate").on("click", function(event) {
   // Get the correct gateID from the corresponding button's data attribute.
   var id = $(this).data("gate-id");
   // AJAX call for GET request.
-  $.get("/devices/" + id, function(data, status){
+  $.get("/devices/update/" + id, function(data, status){
     // console.log("Data: " + data + "\nStatus: " + status);
-    window.location.href = "/devices/" + id; // JavaScript redirect to update page for the specific device clicked.
+    window.location.href = "/devices/update/" + id; // JavaScript redirect to update page for the specific device clicked.
   });
 })
 

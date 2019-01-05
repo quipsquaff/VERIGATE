@@ -2,9 +2,9 @@
 var orm = require("../config/orm.js");
 
 var devices = {
-    queryTable: function(cb) {
+    whichGates: function(uid, cb) {
         // The '4' located in the arguments below needs to be changed to req.body.uid or req.params.uid dependent on how we set up our route for our main (button) page that loads after user login.
-        orm.queryTable("gates", function(res) {
+        orm.whichGates(uid, function(res) {
             cb(res);
         });
     },
