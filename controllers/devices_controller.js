@@ -3,6 +3,21 @@ var devices = require("../models/devices.js");
 
 // Retrieve 'gates' table data
 exports.index = function(req, res) {
+  db.Device.findAll({
+    where: {
+      UserId: req.user.id
+    }
+  }).then(function(dbDevice) {
+    console.log(dbDevice);
+    res.render('app/devices', {
+      layout: 'main-devices',
+      device: dbDevice
+    });
+  });
+};
+
+
+exports.index = function(req, res) {
     console.log("req.user: " + req.user);
 
     devices.whichGates(req.user, function (data) {
