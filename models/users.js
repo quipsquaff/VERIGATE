@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     user_pass: {
-      type: DataTypes.STRING,
+      type: DataTypes.HASH,
 
     }
   },

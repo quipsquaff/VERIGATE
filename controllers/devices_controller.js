@@ -17,18 +17,18 @@ exports.index = function(req, res) {
 };
 
 
-exports.index = function(req, res) {
-    console.log("req.user: " + req.user);
+// exports.index = function(req, res) {
+//     console.log("req.user: " + req.user);
 
-    devices.whichGates(req.user, function (data) {
-        var hbsObject = {
-            layout: 'main-devices',
-            gatesTable: data
-        };
-        console.log(hbsObject);
-        res.render('app/devices', hbsObject);
-    });
-};
+//     devices.whichGates(req.user, function (data) {
+//         var hbsObject = {
+//             layout: 'main-devices',
+//             gatesTable: data
+//         };
+//         console.log(hbsObject);
+//         res.render('app/devices', hbsObject);
+//     });
+// };
 
 // Retrieve specific gate/device to display on our update page.
 exports.updatepage = function(req, res) {
