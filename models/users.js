@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     user_pass: {
-      type: DataTypes.HASH,
+      type: DataTypes.STRING,
 
     }
   },
@@ -38,13 +38,16 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  User.prototype.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-  }
+
+  // User.prototype.validPassword = function (password) {
+  //   return bcrypt.compareSync(password, this.password);
+  // }
+  
   User.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.devices, {
-      onDelete: "cascade"
+    User.belongsToMany(models.devices, {
+      onDelete: "cascade",
+      through: "usersDevices"
     });
   }
   return User;

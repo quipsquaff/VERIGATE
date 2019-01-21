@@ -10,7 +10,7 @@ module.exports = function(app) {
   app.use("/", register); // Route for newUsers data.
   app.use("/application", application); // Registration page
   app.use("/devices", devices); // add-remove devices page
-  app.use("/auth", auth);
-  app.use("/about", about);
+  // app.use("/auth", auth);
+  // app.use("/about", about);
 };
 
