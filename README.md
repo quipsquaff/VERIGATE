@@ -1,4 +1,4 @@
-# project2
+# VERIGATE
 
 Project Name: VeriGate Software
 
